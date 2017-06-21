@@ -1,0 +1,22 @@
+   sudo apt-get install -y python-smbus
+   sudo apt-get install -y i2c-tools
+   sudo raspi-config
+   vim /etc/modprobe.d/raspi-blacklist.conf 
+   vi /etc/modules
+
+i2c-bcm2708
+i2c-dev
+
+
+   sudo apt-get update && sudo apt-get dist-upgrade
+   sudo vim /etc/modules
+   sudo vim /boot/config.txt
+
+dtparam=audio=on
+dtparam=i2c1=on
+dtparam=i2c_arm=on
+
+   sudo reboot
+   sudo i2cdetect -y 1
+   lsmod | grep i2c
+   sudo python example1-oled96-rpi.py 
